@@ -25,8 +25,8 @@
                   IsReadOnly="True"
                   HeadersVisibility="Column" Height="280">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Author" Binding="{Binding Title}" Width="*"/>
-                <DataGridTextColumn Header="Country" Binding="{Binding Author}" Width="*" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*" />
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>

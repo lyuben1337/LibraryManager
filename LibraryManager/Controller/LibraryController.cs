@@ -75,6 +75,7 @@ public class LibraryController
         Random random = new Random();
         while (true)
         {
+            Thread.Sleep(TimeSpan.FromSeconds(15));
             var newBook = new Book
             {
                 Author = $"New Author #{random.Next(0, 1000)}",
@@ -87,7 +88,6 @@ public class LibraryController
                 Message = $"{newBook} added!"
             });
             LogCreated?.Invoke(this,EventArgs.Empty);
-            Thread.Sleep(TimeSpan.FromSeconds(30));
         }
     }
 
@@ -96,6 +96,7 @@ public class LibraryController
         Random random = new Random();
         while (true)
         {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
             Book bookToIssue = BookRepository.GetAll()[random.Next(0, BookRepository.GetAll().Count - 1)];
             while (bookToIssue.Count == 0)
             {
@@ -117,7 +118,6 @@ public class LibraryController
                 Message = $"{takenBook.Book} taken by {takenBook.Customer.Name}!"
             });
             LogCreated?.Invoke(this, EventArgs.Empty);
-            Thread.Sleep(TimeSpan.FromSeconds(1));
         }
     }
 
@@ -126,6 +126,7 @@ public class LibraryController
         Random random = new Random();
         while (true)
         {
+            Thread.Sleep(TimeSpan.FromSeconds(3));
             var allTakenBooks = TakenBookRepository.GetAll();
             if (allTakenBooks != null && allTakenBooks.Count > 0)
             {
@@ -142,7 +143,6 @@ public class LibraryController
                     LogCreated?.Invoke(this, EventArgs.Empty);
                 }
             }
-            Thread.Sleep(TimeSpan.FromSeconds(3));
         }
     }
 }
